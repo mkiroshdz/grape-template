@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: myapp/app
+    ports:
+      - "8080:8080"
+    entrypoint: ["thin", "-R", "config.ru", "-a", "0.0.0.0", "-p", "8080", "start", "-C", "config/thin.yml"]
+    env_file:
+      - .env
+      - .env.local
+    networks:
+      - myapp
+    volumes:
+      - .:/usr/local/myapp
+
+networks:
+  myapp:

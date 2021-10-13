@@ -1,0 +1,10 @@
+--- 
+pid: /usr/local/myapp/tmp/pids/thin.pid
+timeout: 30
+wait: 30
+log: /usr/local/myapp/log/thin.log
+max_conns: 20
+environment: development
+max_persistent_conns: 10
+threaded: false
+chdir: /usr/local/myapp
